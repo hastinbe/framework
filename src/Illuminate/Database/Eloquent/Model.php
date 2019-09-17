@@ -1513,6 +1513,17 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
+     * Check if the "type" of the model's primary key is an integer.
+     *
+     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @return bool
+     */
+    protected function keyTypeIsInteger()
+    {
+        return in_array($this->getKeyType(), ['int', 'integer']);
+    }
+
+    /**
      * Dynamically retrieve attributes on the model.
      *
      * @param  string  $key
